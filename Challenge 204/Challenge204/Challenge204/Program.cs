@@ -18,9 +18,9 @@ namespace Challenge204
         {
             int count = 0;
             int spud = 0;
-            char[] characters = input.ToCharArray();
             string potatoWord = "potato";
 
+            //As long as it finds at least one uncounted potato in a string it'll keep checking.
             if (input.Contains("potato"))
             {
                 while ((spud = input.IndexOf(potatoWord, spud)) != -1)
@@ -29,6 +29,8 @@ namespace Challenge204
                     count++;
                 }
             }
+
+            //Just making sure the grammar is alright. Probably need to add 'was' to 'were' into it too.
             if (count > 1 || count == 0)
             {
                 potatoWord += "es";

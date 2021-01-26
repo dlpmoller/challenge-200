@@ -16,6 +16,7 @@ namespace Challenge201
 
         static void MaskCardInfo (string input)
         {
+            //Making sure those are actual numbers.
             try
             {
                 Convert.ToInt64(input);
@@ -23,11 +24,13 @@ namespace Challenge201
                 int lengthOfCardNumber = characters.Length;
                 string maskedCardInfo = "";
 
+                //Builds a string full of pound signs
                 for (int i = 0; i < lengthOfCardNumber-4; i++)
                 {
                     maskedCardInfo += "#";
                 }
 
+                //This could probably be done easier with a substring
                 if (lengthOfCardNumber > 4)
                 {
                     maskedCardInfo += characters[lengthOfCardNumber - 4].ToString();
@@ -44,6 +47,8 @@ namespace Challenge201
                 Console.WriteLine("So your card number is " + maskedCardInfo + "? Gotcha.");
                 MaskCardInfo(Console.ReadLine());
             }
+
+            //If it's not a number, inform the user.
             catch (FormatException)
             {
                 Console.WriteLine("That's not a card number.");
